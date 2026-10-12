@@ -24,7 +24,7 @@
 
 .home-card {
   padding: 20px;
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
   font-weight: 600;
   background: var(--surface);
