@@ -2,6 +2,9 @@ const nums = [1, 2, 3, 4, , 5];
 
 Array.prototype.myFilter = function (cb , thisArg) {
 
+  if(this === null){
+    throw new TypeError("myFilter call on null or undefined")
+  }
 
   if (typeof cb !== "function") {
     throw new TypeError("cb must be a function");

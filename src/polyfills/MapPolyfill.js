@@ -1,5 +1,9 @@
-const arr = [1,2,,3,4]
-Array.prototype.MyMap = function(cb , thisArg){
+const arr = [1,2,3,4,5];
+Array.prototype.myMap = function(cb , thisArg){
+
+    if(this === null){
+        throw new TypeError("myMap called on null or undefined")
+    }
 
     if(typeof cb!== "function"){
         throw new TypeError("cb must be a function");
@@ -19,7 +23,7 @@ Array.prototype.MyMap = function(cb , thisArg){
 
 }
 
-const result = arr?.MyMap((curr , index , arr)=> curr*2)
+const result = arr?.myMap((curr , index , arr)=> curr*2)
 console.log("map" , result);
 
 
