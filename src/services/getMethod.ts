@@ -29,3 +29,5 @@ async function getMethod({
   }
  
 }
+
+export default getMethod
