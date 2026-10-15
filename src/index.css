@@ -36,6 +36,13 @@ body {
   background: var(--bg);
 }
 
+/* Shared page width and side padding for every route. */
+#root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
 button {
   font: inherit;
   color: inherit;

@@ -13,14 +13,14 @@ const OpenConsole = lazy(async () => {
   return page;
 });
 
-const Accordion = lazy(() => import("./pages/Accordion.tsx"));
-const Debounce = lazy(()=> import("./pages/Debounce.tsx"));
+const AccordionPage = lazy(() => import("./pages/AccordionPage.tsx"));
+const DebouncePage = lazy(() => import("./pages/DebouncePage.tsx"));
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/accordion", element: <Accordion /> },
+  { path: "/accordion", element: <AccordionPage /> },
   { path: "/polyfill", element: <OpenConsole /> },
-  {path:"/debounce" , element:<Debounce/>}
+  { path: "/debounce", element: <DebouncePage /> },
 ]);
 
 function App() {
