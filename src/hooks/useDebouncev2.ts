@@ -7,6 +7,7 @@ export const useDebounceV2 = (
 ) => {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // on unmount clean up already existing timer
   useEffect(() => {
     return () => {
       if (timerRef.current!==null) {
