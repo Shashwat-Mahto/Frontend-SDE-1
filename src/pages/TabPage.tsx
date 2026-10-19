@@ -1,31 +1,47 @@
 import Tab from "../components/tabs/Tab";
 
 export type TabDataType = {
-  id:number,
+  id:number | string,
   label:string,
-  content: string,
+  content: string | any[],
+  disabled: boolean
+}
+
+export type TabDataTypeV2 = {
+  content :string,
 }
 
 
-const tabsData:TabDataType[] = [
+const tabsData:TabDataType[] =[
   {
-    id:101,
-    label: "Profile",
-    content: "this is a profile tab component" 
+    id: "overview",
+    label: "Overview",
+    disabled: true,
+    content: "View your account overview and recent activity.",
   },
-
   {
-    id:102,
+    id: "transactions",
+    label: "Transactions",
+    disabled: false,
+    content: [
+      { id: 1, title: "Online payment", amount: 1200 },
+      { id: 2, title: "Grocery shopping", amount: 850 },
+      { id: 3, title: "Subscription", amount: 499 },
+    ],
+  },
+  {
+    id: "settings",
     label: "Settings",
-    content: "this is a Setting tab component" 
+    disabled: false,
+    content: "Manage your account settings.",
   },
-
   {
-    id:103,
-    label: "Notification",
-    content: "this is a notification tab component" 
+    id: "security",
+    label: "Security",
+    disabled: false,
+    content: "Manage your password and security preferences.",
   },
-]
+];
 function TabPage() {
   return <Tab tabData={tabsData} />;
 }
