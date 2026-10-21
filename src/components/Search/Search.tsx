@@ -5,12 +5,15 @@
  */
 
 import { useEffect, useState } from "react";
+import { FaXmark } from "react-icons/fa6";
 import useDebounce from "../../hooks/useDebounce";
+import "./Search.css";
 
 const ENDPOINT = "https://dummyjson.com/users/search";
 type SearchInputType = {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleClear: () => void;
 };
 
 type UserDataType = {
@@ -19,10 +22,27 @@ type UserDataType = {
   lastName: string;
   email: string;
 };
-const SearchInput = ({ value, handleChange }: SearchInputType) => {
+const SearchInput = ({ value, handleChange, handleClear }: SearchInputType) => {
   return (
-    <div>
-      <input type="text" onChange={handleChange} value={value} />
+    <div className="search-input-wrapper">
+      <input
+        type="text"
+        className="search-input"
+        placeholder="Search users..."
+        aria-label="Search users"
+        onChange={handleChange}
+        value={value}
+      />
+      {value && (
+        <button
+          type="button"
+          className="search-clear"
+          aria-label="Clear search"
+          onClick={handleClear}
+        >
+          <FaXmark />
+        </button>
+      )}
     </div>
   );
 };
@@ -41,19 +61,29 @@ const SearchResults = ({
   // Empty input: show nothing, even if old results are still in state.
   if (!query) return null;
 
-  return loading ? (
-    <span>Loading</span>
-  ) : error ? (
-    <span>Something went wrong. Please try again.</span>
-  ) : data.length === 0 ? (
-    <span>No Data Found</span>
-  ) : (
-    <ul>
-      {data?.map((user: UserDataType) => (
-        <li
-        key={user.id}>{user?.firstName}-{user?.lastName}</li>
-      ))}
-    </ul>
+  return (
+    <div className="search-results">
+      {loading ? (
+        <p className="search-status">Loading...</p>
+      ) : error ? (
+        <p className="search-status search-status-error">
+          Something went wrong. Please try again.
+        </p>
+      ) : data.length === 0 ? (
+        <p className="search-status">No Data Found</p>
+      ) : (
+        <ul className="search-list">
+          {data?.map((user: UserDataType) => (
+            <li key={user.id} className="search-item">
+              <span className="search-name">
+                {user?.firstName} {user?.lastName}
+              </span>
+              <span className="search-email">{user?.email}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 export const Search = () => {
@@ -101,13 +131,13 @@ export const Search = () => {
     fetchData(debouncedValue);
   }, [debouncedValue]);
   return (
-    <div>
-      <div>
-        <SearchInput value={query} handleChange={handleChange} />
-      </div>
-      <div>
-        <SearchResults data={userData} loading={loading} error={error} query={query} />
-      </div>
+    <div className="search">
+      <SearchInput
+        value={query}
+        handleChange={handleChange}
+        handleClear={() => setQuery("")}
+      />
+      <SearchResults data={userData} loading={loading} error={error} query={query} />
     </div>
   );
 };
