@@ -16,13 +16,15 @@ const OpenConsole = lazy(async () => {
 const AccordionPage = lazy(() => import("./pages/AccordionPage.tsx"));
 const DebouncePage = lazy(() => import("./pages/DebouncePage.tsx"));
 const TabPage = lazy(()=>import("./pages/TabPage.tsx"));
+const SearchPage = lazy(()=>import("./pages/SearchPage.tsx"));
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/accordion", element: <AccordionPage /> },
   { path: "/polyfill", element: <OpenConsole /> },
   { path: "/debounce", element: <DebouncePage /> },
-  {path:"/tab" , element: <TabPage/>}
+  {path:"/tab" , element: <TabPage/>},
+  {path:"/search" , element:<SearchPage/>}
 ]);
 
 function App() {
