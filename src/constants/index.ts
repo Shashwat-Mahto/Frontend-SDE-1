@@ -3,4 +3,5 @@ export const routes = [
   { title: "Polyfill", route: "/polyfill" },
   { title: "Debounce", route: "/debounce" },
   {title:"Tab" , route:"/tab"},
+  {title: "Search" , route:"/search"},
 ];
