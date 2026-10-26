@@ -1,6 +1,17 @@
+import { Grid } from "../components/GridLight/GridLight"
+
+const data:number[][] = [
+    [1,1,1],
+    [1,0,0],
+    [1,1,1],
+]
+
+
 function GridLightPage(){
+
+    
     return (
-        <p>Grid...</p>
+        <Grid data={data}/>
     )
 }
 

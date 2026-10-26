@@ -1,0 +1,20 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: fit-content;
+  gap: 20px;
+}
+
+.box {
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.visible {
+  border: 2px solid black;
+}
+
+.color {
+  background-color: rgb(76, 179, 76);
+}
