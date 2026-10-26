@@ -17,6 +17,7 @@ const AccordionPage = lazy(() => import("./pages/AccordionPage.tsx"));
 const DebouncePage = lazy(() => import("./pages/DebouncePage.tsx"));
 const TabPage = lazy(()=>import("./pages/TabPage.tsx"));
 const SearchPage = lazy(()=>import("./pages/SearchPage.tsx"));
+const GridLightPage = lazy(()=>import("./pages/GridLightPage.tsx"));
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
   { path: "/polyfill", element: <OpenConsole /> },
   { path: "/debounce", element: <DebouncePage /> },
   {path:"/tab" , element: <TabPage/>},
-  {path:"/search" , element:<SearchPage/>}
+  {path:"/search" , element:<SearchPage/>},
+  {path:"/grid-light" , element:<GridLightPage/>}
 ]);
 
 function App() {

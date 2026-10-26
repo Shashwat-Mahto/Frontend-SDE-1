@@ -4,4 +4,5 @@ export const routes = [
   { title: "Debounce", route: "/debounce" },
   {title:"Tab" , route:"/tab"},
   {title: "Search" , route:"/search"},
+  {title: "Grid Light" , route:"/grid-light"},
 ];
