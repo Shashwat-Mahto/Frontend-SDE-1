@@ -5,4 +5,5 @@ export const routes = [
   {title:"Tab" , route:"/tab"},
   {title: "Search" , route:"/search"},
   {title: "Grid Light" , route:"/grid-light"},
+  {title:"Country Capital Game" , route:"/cc"},
 ];

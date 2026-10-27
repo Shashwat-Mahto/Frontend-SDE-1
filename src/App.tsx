@@ -18,6 +18,7 @@ const DebouncePage = lazy(() => import("./pages/DebouncePage.tsx"));
 const TabPage = lazy(()=>import("./pages/TabPage.tsx"));
 const SearchPage = lazy(()=>import("./pages/SearchPage.tsx"));
 const GridLightPage = lazy(()=>import("./pages/GridLightPage.tsx"));
+const CountryCapitalPage = lazy(()=>import("./pages/CountryCapitalPage.tsx"))
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
   { path: "/debounce", element: <DebouncePage /> },
   {path:"/tab" , element: <TabPage/>},
   {path:"/search" , element:<SearchPage/>},
-  {path:"/grid-light" , element:<GridLightPage/>}
+  {path:"/grid-light" , element:<GridLightPage/>},
+  {path:"/cc" , element:<CountryCapitalPage/>}
 ]);
 
 function App() {
