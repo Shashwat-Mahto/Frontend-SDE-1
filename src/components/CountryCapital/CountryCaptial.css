@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    gap: 8px;
+
+}
+
+.selection-box{
+    padding: 4px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.selected{
+    border: 1px solid blue;
+}
+
+.unselected{
+    border: 1px solid black;
+}
+
+.correct{
+    border: 1px solid green;
+}
+
+.incorrect{
+    border: 1px solid red;
+}
+/* button{
+    display: block;
+} */
