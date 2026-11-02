@@ -13,6 +13,16 @@ const OpenConsole = lazy(async () => {
   return page;
 });
 
+// Same as above, for the array manipulation problems.
+const ArrayManipulation = lazy(async () => {
+  const problems = import.meta.glob("./arrayManipulation/*.js");
+  const [page] = await Promise.all([
+    import("./pages/OpenConsole.tsx"),
+    ...Object.values(problems).map((load) => load()),
+  ]);
+  return page;
+});
+
 const AccordionPage = lazy(() => import("./pages/AccordionPage.tsx"));
 const DebouncePage = lazy(() => import("./pages/DebouncePage.tsx"));
 const TabPage = lazy(()=>import("./pages/TabPage.tsx"));
@@ -28,7 +38,8 @@ const router = createBrowserRouter([
   {path:"/tab" , element: <TabPage/>},
   {path:"/search" , element:<SearchPage/>},
   {path:"/grid-light" , element:<GridLightPage/>},
-  {path:"/cc" , element:<CountryCapitalPage/>}
+  {path:"/cc" , element:<CountryCapitalPage/>},
+  { path: "/array-manipulation", element: <ArrayManipulation /> },
 ]);
 
 function App() {
