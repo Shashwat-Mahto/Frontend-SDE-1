@@ -26,3 +26,59 @@
  *   { id: 1, name: "iPhone",  finalPrice: 72000,  rating: 4.5 },
  * ]
  */
+
+const products = [
+  {
+    id: 1,
+    name: "iPhone",
+    price: 80000,
+    category: "mobile",
+    rating: 4.5,
+    inStock: true,
+  },
+  {
+    id: 2,
+    name: "Samsung",
+    price: 60000,
+    category: "mobile",
+    rating: 4.2,
+    inStock: false,
+  },
+  {
+    id: 3,
+    name: "MacBook",
+    price: 120000,
+    category: "laptop",
+    rating: 4.8,
+    inStock: true,
+  },
+  {
+    id: 4,
+    name: "OnePlus",
+    price: 40000,
+    category: "mobile",
+    rating: 4.7,
+    inStock: true,
+  },
+  {
+    id: 5,
+    name: "Dell",
+    price: 70000,
+    category: "laptop",
+    rating: 4.1,
+    inStock: true,
+  },
+];
+
+function transform(arr) {
+  const res = arr?.filter((item) => item?.inStock && item?.rating > 4.3).sort((a,b)=> b.rating - a.rating)
+  .map((item) => {
+    return {id:item?.id , name:item?.name , rating:item?.rating,  finalPrice: item?.price - (item?.price)*0.1}
+  })
+ 
+  return res;
+}
+
+const result = transform(products);
+console.log("q1, " , result);
+
