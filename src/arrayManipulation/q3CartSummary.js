@@ -26,3 +26,42 @@
  *   mostExpensiveItem: { id: 4, name: "Bag", price: 3000, quantity: 2, category: "accessories" }  // Bag: 3000 * 2 = 6000
  * }
  */
+
+const cart = [
+  { id: 1, name: "Shoes", price: 2000, quantity: 2, category: "fashion" },
+  { id: 2, name: "Shirt", price: 1000, quantity: 3, category: "fashion" },
+  { id: 3, name: "Watch", price: 5000, quantity: 1, category: "accessories" },
+  { id: 4, name: "Bag", price: 3000, quantity: 2, category: "accessories" },
+];
+
+function transform(arr) {
+  const result = arr?.reduce(
+    (acc, item) => {
+      const category = item?.category;
+
+      const amount = item?.quantity * item?.price;
+
+      acc.totalAmount += amount;
+      acc.totalQuantity += item?.quantity;
+
+      acc.categorySummary[category] = acc.categorySummary[category]
+        ? acc.categorySummary[category] + amount
+        : amount
+
+     if(acc.mostExpensiveItem === null){
+        acc.mostExpensiveItem = item;
+     }else{
+        const mostExpensiveTillNow = acc.mostExpensiveItem?.price * acc.mostExpensiveItem?.quantity
+        acc.mostExpensiveItem = amount > mostExpensiveTillNow ? item : acc.mostExpensiveItem;
+     }
+
+      return acc;
+    },
+    { totalAmount: 0, totalQuantity: 0, categorySummary: {} , mostExpensiveItem:null },
+  );
+
+  return result;
+}
+
+const result = transform(cart);
+console.log("q3", result);
