@@ -27,3 +27,33 @@
  *   averageMarks: 90.67   // (95 + 92 + 85) / 3
  * }
  */
+
+const students = [
+  { id: 1, name: "Rahul", marks: 85, status: "active" },
+  { id: 2, name: "Priya", marks: 92, status: "active" },
+  { id: 3, name: "Amit", marks: 65, status: "inactive" },
+  { id: 4, name: "Neha", marks: 78, status: "active" },
+  { id: 5, name: "Karan", marks: 95, status: "active" },
+];
+
+function transform(students) {
+  const data = students
+    ?.filter((student) => student.status === "active")
+    ?.sort((a, b) => b.marks - a.marks)
+    .slice(0, 3)
+    ?.map(({status , ...rest}) => ({
+      ...rest,
+      grade: rest.marks >= 90 ? "A" : rest.marks >= 80 ? "B" : "C",
+    }));
+
+    const averageMarks =  data?.length ? Number((data?.reduce((acc , curr) => acc+=curr.marks , 0)/data.length ).toFixed(2)): 0;
+  
+    return {
+        students: data,
+        averageMarks,
+    }
+}
+
+const result = transform(students);
+console.log("q10" , result);
+
