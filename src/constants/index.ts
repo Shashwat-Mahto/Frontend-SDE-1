@@ -7,5 +7,5 @@ export const routes = [
   {title: "Grid Light" , route:"/grid-light"},
   {title:"Country Capital Game" , route:"/cc"},
   { title: "Array Manipulation", route: "/array-manipulation" },
-  { title: "Chip Input Filter", route: "/chip-input-filter" },
+  { title: "Multi Select Input", route: "/multi-select-input" },
 ];

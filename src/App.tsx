@@ -29,7 +29,7 @@ const TabPage = lazy(()=>import("./pages/TabPage.tsx"));
 const SearchPage = lazy(()=>import("./pages/SearchPage.tsx"));
 const GridLightPage = lazy(()=>import("./pages/GridLightPage.tsx"));
 const CountryCapitalPage = lazy(()=>import("./pages/CountryCapitalPage.tsx"))
-const ChipInputFilterPage = lazy(() => import("./pages/ChipInputFilterPage.tsx"));
+const MultiSelectInputPage = lazy(() => import("./pages/MultiSelectInputPage.tsx"));
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
   {path:"/grid-light" , element:<GridLightPage/>},
   {path:"/cc" , element:<CountryCapitalPage/>},
   { path: "/array-manipulation", element: <ArrayManipulation /> },
-  { path: "/chip-input-filter", element: <ChipInputFilterPage /> },
+  { path: "/multi-select-input", element: <MultiSelectInputPage /> },
 ]);
 
 function App() {
