@@ -14,7 +14,7 @@ function showVillian(message){
 Function.prototype.myCall = function(thisArg , ...args){
 
     /**
-     * this argument can be null and if we pass a anything rather than object
+     * this argument can be null and if we pass  anything rather than object
      * call converts it into an object
      */
 
