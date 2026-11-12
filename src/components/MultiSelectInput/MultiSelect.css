@@ -1,0 +1,62 @@
+.container{
+    max-width: 400px;
+    /* border:2px solid black; */
+}
+
+/* The visible "input" box: chips + the real input on one line, wrapping when full. */
+.input-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+/* The real input has no border of its own and fills the space after the last chip. */
+.input-container input{
+    display: block;
+    /* min-width: 80px; */
+    padding: 4px;
+    height: 32px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent; /* show the page background through the input */
+    color: inherit;
+}
+
+.chip{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 10px;
+    background-color: beige;
+    border-radius: 999px;
+}
+
+.result-container{
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 8px;
+    border-radius: 8px;
+    overflow: hidden; /* clip the items' hover background to the rounded corners */
+}
+
+.items{
+    cursor: pointer;
+    padding: 8px;
+}
+
+.items:hover{
+    background-color: beige;
+}
+
+
+.no-options{
+    padding: 8px;
+    color: gray;
+    cursor: default;
+}
